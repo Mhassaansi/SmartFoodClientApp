@@ -2,6 +2,8 @@ package wahcanttadmintailors.com.smartfoodorderingclientapp.Fragments;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -29,6 +31,7 @@ import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.appbar.MaterialToolbar;
 
 
 import org.json.JSONException;
@@ -41,19 +44,21 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import wahcanttadmintailors.com.smartfoodorderingclientapp.FragmentHostActivity;
+import wahcanttadmintailors.com.smartfoodorderingclientapp.PreferenceClass;
 import wahcanttadmintailors.com.smartfoodorderingclientapp.R;
 
 
 import static wahcanttadmintailors.com.smartfoodorderingclientapp.ApiUrls.apply_book_tabel;
-import static wahcanttadmintailors.com.smartfoodorderingclientapp.Fragments.SiginFragment.TOKEN_CODE;
+
 
 public class BookTableFragment extends Fragment {
     TextView date,time;
     Button book;
     long diff,differenceDates;
     EditText totpersons;
-    final String persons="9";
-    String finaltime,finaldate;
+    String finaltime,finaldate,persons,Token;
+    SharedPreferences sharedPreferences;
 
     @Nullable
     @Override
@@ -66,6 +71,13 @@ public class BookTableFragment extends Fragment {
          time=v.findViewById(R.id.Time_Selection);
          book=v.findViewById(R.id.bookit);
          totpersons=v.findViewById(R.id.tot_persons);
+//        MaterialToolbar materialToolbar;
+//        materialToolbar=(MaterialToolbar)v.findViewById(R.id.catAppBar);
+//        ((FragmentHostActivity) getActivity()).setSupportActionBar(materialToolbar);
+//        materialToolbar.setTitle("Book Your Table");
+         sharedPreferences=getActivity().getSharedPreferences(PreferenceClass.user,
+                 Context.MODE_PRIVATE);
+        Token=sharedPreferences.getString(PreferenceClass.user_token,"token");
         date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -137,7 +149,7 @@ time.setText(hourOfDay + ":" + minute);
        });
       finaldate=date.getText().toString().trim();
        finaltime=time.getText().toString().trim();
-    // persons=totpersons.getText().toString().trim();
+  persons=totpersons.getText().toString().trim();
        book.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
@@ -146,7 +158,9 @@ time.setText(hourOfDay + ":" + minute);
                    Toast.makeText(getActivity(), "Please fill all fields", Toast.LENGTH_SHORT).show();
                }
                else{
-                   Singin();
+                  // Log.d("token:",Token);
+                   Toast.makeText(getContext(), ""+Token, Toast.LENGTH_SHORT).show();
+                   bookTable();
                }
            }
        });
@@ -154,8 +168,8 @@ time.setText(hourOfDay + ":" + minute);
 
          return  v;
     }
-    private void Singin () {
-        RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
+    private void bookTable () {
+        final RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
         StringRequest stringRequest = new StringRequest(Request.Method.POST,apply_book_tabel,
                 new Response.Listener<String>() {
                     @Override
@@ -165,7 +179,11 @@ time.setText(hourOfDay + ":" + minute);
                             JSONObject jsonObject = new JSONObject(response);
                           String code = jsonObject.optString("code");
                            String message = jsonObject.optString("message");
-                            Toast.makeText(getActivity(), "Request Send Succesfully", Toast.LENGTH_SHORT).show();
+                           if(response.equals("We Will Mail You For Reservation Confirmation!")){
+                               Toast.makeText(getActivity(), "We Will Mail You For Reservation Confirmation!",
+                                       Toast.LENGTH_SHORT).show();
+                           }
+
                             // finish();
                         } catch (JSONException e) {
                             Toast.makeText(getActivity(), " Failed", Toast.LENGTH_SHORT).show();
@@ -197,21 +215,21 @@ time.setText(hourOfDay + ":" + minute);
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("date",date.getText().toString());
-                params.put("time",time.getText().toString());
-                params.put("persons",persons);
+                params.put("date","2020-6-9");
+                params.put("time","01:09");
+                params.put("persons","1");
 
                 return params;
             }
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String> header =  new HashMap<>();
-              //   header.put("Content-Type","application/json");
-                header.put("Authorization", "Bearer " + TOKEN_CODE);
+              //header.put("Content-Type","application/json");
+                header.put("Authorization", "Bearer " + Token);
                 return header;
-            }
+           }
         };
-        Toast.makeText(getActivity(), ""+TOKEN_CODE, Toast.LENGTH_SHORT).show();
+
         requestQueue.add(stringRequest);
     }
 

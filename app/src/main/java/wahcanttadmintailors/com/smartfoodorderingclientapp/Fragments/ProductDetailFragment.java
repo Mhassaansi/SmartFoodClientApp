@@ -23,9 +23,9 @@ import static wahcanttadmintailors.com.smartfoodorderingclientapp.ApiUrls.prod_i
 
 
 public class ProductDetailFragment extends Fragment {
-    String name,s,m,l,calories,image,descrip;
+    String name,s,calories,image,descrip;
     TextView namedesp,desp,cal,totPrice,despprice;
-    ImageView mainimage;
+    ImageView mainimage,back_des;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup
@@ -38,6 +38,7 @@ public class ProductDetailFragment extends Fragment {
         totPrice=(TextView)v.findViewById(R.id.total_desp_amnt);
         despprice=(TextView)v.findViewById(R.id.price_product);
         mainimage=(ImageView)v.findViewById(R.id.mainimage);
+        back_des=(ImageView)v.findViewById(R.id.p_detail_back);
 
 
 

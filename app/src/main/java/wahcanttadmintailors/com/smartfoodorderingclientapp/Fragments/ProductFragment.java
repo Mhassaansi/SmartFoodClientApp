@@ -48,8 +48,6 @@ import static wahcanttadmintailors.com.smartfoodorderingclientapp.ApiUrls.produc
 
 
 public class ProductFragment extends Fragment {
-    public ImageView cartproduct;
-   public static NotificationBadge nb;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
@@ -67,24 +65,12 @@ public class ProductFragment extends Fragment {
       View v=inflater.inflate(R.layout.fragment_detials_fragment, container, false);
         recyclerView = (RecyclerView)v.findViewById(R.id.my_recycler_view);
         layoutManager = new LinearLayoutManager(getContext());
-       // cartproduct=(ImageView)v.findViewById(R.id.cart_product);
-       // nb=(NotificationBadge)v.findViewById(R.id.badge);
         productList=new ArrayList<>();
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),
                 LinearLayoutManager.VERTICAL, false));
         mAdapter=new ProductAdapter(c,productList);
         recyclerView.setAdapter(mAdapter);
         productdetails();
-//     cartproduct.setOnClickListener(new View.OnClickListener() {
-//         @Override
-//         public void onClick(View v) {
-//             CartFragment more_detail_fragment=new CartFragment();
-//             FragmentHostActivity activity_frag=(FragmentHostActivity) getActivity();
-//             activity_frag.getSupportFragmentManager().beginTransaction().replace(R.id.ui,
-//                     more_detail_fragment).addToBackStack(null).commit();
-//         }
-
-//     });
         MaterialToolbar materialToolbar;
         materialToolbar=(MaterialToolbar)v.findViewById(R.id.catAppBar);
         ((FragmentHostActivity) getActivity()).setSupportActionBar(materialToolbar);
@@ -100,7 +86,6 @@ public class ProductFragment extends Fragment {
         progressDialog.setMessage("Loading...");
         progressDialog.show();
         final RequestQueue requestQueue= Volley.newRequestQueue(getActivity());
-        Toast.makeText(getActivity(), ""+categoryid, Toast.LENGTH_SHORT).show();
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET,
                 products_Api+categoryid,
@@ -164,7 +149,6 @@ public class ProductFragment extends Fragment {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
-//                params.put("pdate1", lastweekdate);
 
                 return params;
             }

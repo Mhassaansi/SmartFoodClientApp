@@ -69,31 +69,6 @@ public class CategoryFragment extends Fragment {
         adapter = new CategoryAdapter(getActivity(), CategoriesList);
         recyclerView.setAdapter(adapter);
          loadcetagories();
-      //((FragmentHostActivity) getActivity()).setActionBarTitle("Menu");
-        //CategoryFragment.getActionBar().setTitle("Your Title");
-
-      //  ((AppCompatActivity)c).getSupportActionBar().setTitle("Your Title");
-        //Determine screen size
-//        if ((getResources().getConfiguration().screenLayout & Configuration.UI_MODE_TYPE_MASK)
-//                == Configuration.UI_MODE_TYPE_TELEVISION) {
-//            Toast.makeText(getActivity(), "Large screen", Toast.LENGTH_LONG).show();
-//            recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 5));
-//        }
-//        else if ((getResources().getConfiguration().screenLayout & Configuration.UI_MODE_TYPE_MASK)
-//                == Configuration.UI_MODE_TYPE_NORMAL) {
-//            Toast.makeText(getActivity(), "Normal sized screen", Toast.LENGTH_LONG).show();
-//            recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 5));
-//        }
-//        else if ((getResources().getConfiguration().screenLayout & Configuration.UI_MODE_TYPE_MASK)
-//                ==Configuration.SCREENLAYOUT_SIZE_SMALL) {
-//            Toast.makeText(getActivity(), "Small sized screen", Toast.LENGTH_LONG).show();
-//            recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 4));
-//        }
-//        else {
-//            Toast.makeText(getActivity(), "Screen size is neither large, normal or small",
-//                    Toast.LENGTH_LONG).show();
-//            recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3));
-//        }
         return v;
     }
 
@@ -171,7 +146,6 @@ public class CategoryFragment extends Fragment {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
-//                params.put("pdate1", lastweekdate);
 
                 return params;
             }

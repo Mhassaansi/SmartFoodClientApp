@@ -42,10 +42,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static wahcanttadmintailors.com.smartfoodorderingclientapp.ApiUrls.view_deals;
-
-
-//import com.hsoftzxadsfsfsf.smartfoodordering.ViewHolder.MyViewHolder;
-
 public class MainFragment extends Fragment implements View.OnClickListener {
     Button booktabel,viewfood;
     private RecyclerView recyclerView;
@@ -53,8 +49,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
     private RecyclerView.LayoutManager layoutManager;
     ArrayList<DealsModel> dealsmodel;
     public Context c;
-    MaterialToolbar materialToolbar;
-  //  public String tax_tag,final_tax;
+
 
     @Nullable
     @Override

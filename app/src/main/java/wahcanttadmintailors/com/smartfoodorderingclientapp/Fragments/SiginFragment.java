@@ -1,6 +1,7 @@
 package wahcanttadmintailors.com.smartfoodorderingclientapp.Fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -35,6 +36,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import wahcanttadmintailors.com.smartfoodorderingclientapp.FragmentHostActivity;
 import wahcanttadmintailors.com.smartfoodorderingclientapp.Login_base;
 import wahcanttadmintailors.com.smartfoodorderingclientapp.PreferenceClass;
 import wahcanttadmintailors.com.smartfoodorderingclientapp.R;
@@ -45,7 +47,7 @@ import static wahcanttadmintailors.com.smartfoodorderingclientapp.ApiUrls.sign_i
 public class SiginFragment extends Fragment {
    public  EditText email,password;
     String email_register,pass_register;
-    public static String TOKEN_CODE ;
+    String TOKEN_CODE ;
     Button sigin_btn,notmember;
     SharedPreferences sPref;
     Context context;
@@ -105,8 +107,9 @@ public class SiginFragment extends Fragment {
                               JSONObject jsonObject = new JSONObject(response);
                              // Toast.makeText(getActivity(), ""+response, Toast.LENGTH_SHORT).show();
                                TOKEN_CODE = jsonObject.optString("token");
-                                Toast.makeText(getActivity(), "LOGIN SUCCESFULLY",
-                                        Toast.LENGTH_LONG).show();
+
+//                                Toast.makeText(getActivity(), ""+TOKEN_CODE,
+//                                        Toast.LENGTH_LONG).show();
 
 if(response.equals("Invalid User")){
     Toast.makeText(getActivity(), "Login Failed", Toast.LENGTH_SHORT).show();
@@ -118,10 +121,12 @@ else{
     editor.putString(PreferenceClass.user_token,TOKEN_CODE);
     editor.putBoolean(PreferenceClass.IS_LOGIN, true);
     editor.commit();
-            MainFragment df= new MainFragment();
-            FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.ui,df);
-            ft.commit();
+//            MainFragment df= new MainFragment();
+//            FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
+//            ft.replace(R.id.ui,df);
+//            ft.commit();
+    Intent i=new Intent(getContext(), FragmentHostActivity.class);
+    startActivity(i);
 }
                            //     requestQueue.stop();
                             } catch (JSONException e) {
