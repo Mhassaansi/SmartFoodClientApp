@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+   >
+<RelativeLayout
+    android:id="@+id/spalshmain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    >
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/maindeals"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@color/dark_silver"
+        android:scaleType="fitXY"
+        android:scrollbars="vertical"
+        >
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <Button
+        android:layout_marginLeft="10dp"
+        android:id="@+id/booktable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/maindeals"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/button_corners"
+        android:text="Book your Table Now"
+        android:textAllCaps="false"
+        android:textColor="@color/dark_Green"
+        android:textSize="20dp"
+        >
+    </Button>
+    <Button
+        android:id="@+id/viewfood"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/booktable"
+        android:layout_margin="10dp"
+        android:background="@drawable/grren_button"
+        android:text="View Food Items"
+        android:textAllCaps="false"
+        android:textColor="@color/White"
+        android:textSize="20dp"
+        >
+    </Button>
+
+
+</RelativeLayout>
+
+</FrameLayout>
+<!--</ScrollView>-->
