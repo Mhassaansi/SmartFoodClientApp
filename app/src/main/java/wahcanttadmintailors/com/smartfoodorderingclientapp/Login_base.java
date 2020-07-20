@@ -29,10 +29,6 @@ public class Login_base extends AppCompatActivity {
             ft.commit();
         }
         else {
-//            MainFragment sigin=new MainFragment();
-//            FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
-//            ft.replace(R.id.ui,sigin);
-//            ft.commit();
             Intent i=new Intent(Login_base.this,FragmentHostActivity.class);
             startActivity(i);
         }

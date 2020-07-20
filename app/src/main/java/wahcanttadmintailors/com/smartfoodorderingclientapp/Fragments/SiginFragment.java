@@ -84,13 +84,12 @@ public class SiginFragment extends Fragment {
                     Toast.makeText(getActivity(), "Please Fill all Feilds", Toast.LENGTH_SHORT).show();
                 } else {
                     Singin();
+//                    email.setText("");
+//                    password.setText("");
                 }
             }
         });
-//       Fragment sigin=new SiginFragment();
-//      if(sigin){
-        //  bnv.setVisibility(View.GONE);
-//      }
+
 
             return v;
         }

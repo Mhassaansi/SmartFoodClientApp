@@ -1,6 +1,7 @@
 package wahcanttadmintailors.com.smartfoodorderingclientapp.Fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -20,6 +21,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.appbar.MaterialToolbar;
 
 import wahcanttadmintailors.com.smartfoodorderingclientapp.FragmentHostActivity;
+import wahcanttadmintailors.com.smartfoodorderingclientapp.Login_base;
 import wahcanttadmintailors.com.smartfoodorderingclientapp.PreferenceClass;
 import wahcanttadmintailors.com.smartfoodorderingclientapp.R;
 
@@ -68,14 +70,16 @@ public class MoreFragment extends Fragment {
                     transaction.replace(R.id.ui, book_frag);
                     transaction.addToBackStack(null);
                     transaction.commit();
-                    if(position==2){
-                        SharedPreferences.Editor editor = sharedPreferences.edit();
-                        editor.putString(PreferenceClass.pre_email, "");
-                        editor.putString(PreferenceClass.pre_pass, "");
-                        editor.putString(PreferenceClass.user_token,"");
-                        editor.putBoolean(PreferenceClass.IS_LOGIN, false);
-                        editor.commit();
-                    }
+
+
+                }
+                if(position==2){
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString(PreferenceClass.pre_email, "");
+                    editor.putString(PreferenceClass.pre_pass, "");
+                    editor.putString(PreferenceClass.user_token,"");
+                    editor.putBoolean(PreferenceClass.IS_LOGIN, false);
+                    editor.commit();
 
                 }
             }

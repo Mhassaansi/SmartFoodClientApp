@@ -79,6 +79,9 @@ public class SiginupFragment extends Fragment {
                 }
                 else {
                     Singup();
+//                    name.setText("");
+//                    email.setText("");
+//                    password.setText("");
                 }
             }
         });

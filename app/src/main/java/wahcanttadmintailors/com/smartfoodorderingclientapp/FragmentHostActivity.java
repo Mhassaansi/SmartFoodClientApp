@@ -21,14 +21,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class FragmentHostActivity extends AppCompatActivity {
 
    public static BottomNavigationView bnv ;
-    public static BadgeDrawable badgeDrawable;
-   FrameLayout frameLayout;
-//    View noti_badge;
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-    }
+
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -64,12 +58,12 @@ public class FragmentHostActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_frag);
 
-        ///////////////
+
             MainFragment sigin=new MainFragment();
             FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.ui,sigin);
             ft.commit();
-        //////////////////////////////
+
 
         bnv=(BottomNavigationView)findViewById(R.id.bottom_navigation);
         bnv.setOnNavigationItemSelectedListener(navListener);
