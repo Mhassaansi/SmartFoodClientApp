@@ -6,13 +6,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -28,11 +26,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.appbar.MaterialToolbar;
-import wahcanttadmintailors.com.smartfoodorderingclientapp.Adapters.DealsAdapter;
-import wahcanttadmintailors.com.smartfoodorderingclientapp.FragmentHostActivity;
-import wahcanttadmintailors.com.smartfoodorderingclientapp.Model.DealsModel;
-import wahcanttadmintailors.com.smartfoodorderingclientapp.R;
-
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -42,41 +35,38 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import static wahcanttadmintailors.com.smartfoodorderingclientapp.ApiUrls.view_deals;
-public class MainFragment extends Fragment implements View.OnClickListener {
-    Button booktabel,viewfood;
-    private RecyclerView recyclerView;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager layoutManager;
-    ArrayList<DealsModel> dealsmodel;
-    public Context c;
-    MaterialToolbar materialToolbar;
+import wahcanttadmintailors.com.smartfoodorderingclientapp.Adapters.CategoryAdapter;
+import wahcanttadmintailors.com.smartfoodorderingclientapp.Adapters.DealsAdapter;
+import wahcanttadmintailors.com.smartfoodorderingclientapp.FragmentHostActivity;
+import wahcanttadmintailors.com.smartfoodorderingclientapp.Model.DealsModel;
+import wahcanttadmintailors.com.smartfoodorderingclientapp.R;
 
+import static wahcanttadmintailors.com.smartfoodorderingclientapp.ApiUrls.view_deals;
+
+public class DealsFragment extends Fragment {
+    RecyclerView recyclerView;
+    RecyclerView.LayoutManager layoutManager;
+    Context c;
+    RecyclerView.Adapter adapter;
+    ArrayList<DealsModel> deal;
+    MaterialToolbar materialToolbar;
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup
-            container, @Nullable Bundle savedInstanceState) {
-        View v=inflater.inflate(R.layout.main_activity,container,false);
-
-        recyclerView=(RecyclerView)v.findViewById(R.id.maindeals);
-        booktabel=(Button)v.findViewById(R.id.booktable);
-        viewfood=(Button)v.findViewById(R.id.viewfood);
-
-
-
-      booktabel.setOnClickListener(this);
-        viewfood.setOnClickListener(this);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),
-                LinearLayoutManager.HORIZONTAL, false));
-        dealsmodel=new ArrayList<>();
-        mAdapter= new DealsAdapter(c,dealsmodel);
-        recyclerView.setAdapter(mAdapter);
-
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
+        View v=inflater.inflate(R.layout.dealsfragment,container,false);
         materialToolbar=(MaterialToolbar)v.findViewById(R.id.catAppBar);
         ((FragmentHostActivity) getActivity()).setSupportActionBar(materialToolbar);
-        materialToolbar.setTitle("Home");
+        materialToolbar.setTitle("Deals");
+        deal=new ArrayList<>();
+        recyclerView=(RecyclerView)v.findViewById(R.id.dealsfrgment);
+        deal=new ArrayList<>();
+        layoutManager = new LinearLayoutManager(getActivity(),
+                LinearLayoutManager.VERTICAL, false);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        adapter = new DealsAdapter(getActivity(), deal);
+        recyclerView.setAdapter(adapter);
         dealsdata();
-
         return v;
     }
 
@@ -84,7 +74,6 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         final ProgressDialog progressDialog = new ProgressDialog(getActivity());
         progressDialog.setMessage("Loading...");
         progressDialog.show();
-
 
         final RequestQueue requestQueue= Volley.newRequestQueue(getActivity());
         StringRequest stringRequest = new StringRequest(Request.Method.GET, view_deals,
@@ -99,7 +88,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
                             for (int i = 0; i < array.length(); i++) {
                                 //getting product object from json array
                                 JSONObject deals = array.getJSONObject(i);
-                                dealsmodel.add(new DealsModel(
+                                deal.add(new DealsModel(
                                         deals.getString("id"),
                                         deals.getString("deal_img"),
                                         deals.getString("deal_name"),
@@ -115,7 +104,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
                             ex.printStackTrace();
                             progressDialog.dismiss();
                         }
-                        mAdapter.notifyDataSetChanged();
+                        adapter.notifyDataSetChanged();
                         progressDialog.dismiss();
                     }
                 },
@@ -150,30 +139,6 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         };
         //adding our stringrequest to queue
         Volley.newRequestQueue(getContext()).add(stringRequest);
-
-    }
-
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-
-            case R.id.booktable:
-                Fragment book_frag= new BookTableFragment();
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.ui, book_frag);
-                transaction.addToBackStack(null);
-                transaction.commit();
-                break;
-
-            case  R.id.viewfood:
-                Fragment fragment1= new CategoryFragment();
-                FragmentTransaction transaction1 = getFragmentManager().beginTransaction();
-                transaction1.replace(R.id.ui, fragment1);
-                transaction1.addToBackStack(null);
-                transaction1.commit();
-                break;
-        }
 
     }
 }

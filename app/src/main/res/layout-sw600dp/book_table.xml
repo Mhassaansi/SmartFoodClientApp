@@ -7,29 +7,11 @@
     <include
         layout="@layout/category_bar"
         />
-<!--<FrameLayout-->
-<!--    android:id="@+id/frame_1st"-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="30dp"-->
-<!--    android:background="@color/dark_Green">-->
-<!--    <TextView-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_gravity="center"-->
-<!--        android:layout_marginTop="0dp"-->
-<!--        android:text="Book Your Table Know"-->
-<!--        android:textColor="@color/white"-->
-<!--        android:textSize="20sp"-->
-<!--        android:textStyle="bold"-->
-<!--        >-->
-<!--    </TextView>-->
-<!--</FrameLayout>-->
+
     <TextView
         android:id="@+id/Date"
         android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="5dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
         android:text="Select Booking Date"
         android:textColor="@color/dark_Green"
@@ -38,7 +20,7 @@
     </TextView>
     <TextView
         android:id="@+id/Date_Selection"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_toRightOf="@id/Date"
@@ -63,7 +45,7 @@
     </TextView>
     <TextView
         android:id="@+id/Time_Selection"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
       android:layout_height="wrap_content"
         android:layout_below="@id/Date_Selection"
         android:layout_marginLeft="10dp"
@@ -89,7 +71,7 @@
     </TextView>
     <EditText
         android:id="@+id/tot_persons"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/Time_Selection"
         android:layout_marginLeft="10dp"

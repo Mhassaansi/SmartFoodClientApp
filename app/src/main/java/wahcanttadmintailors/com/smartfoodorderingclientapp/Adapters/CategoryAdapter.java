@@ -70,8 +70,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
             this.cm=cm;
             this.cc=cc;
             itemView.setOnClickListener(this);
-
-            // sreach=(EditText)itemView.findViewById(R.id.sreach_cat);
             catimg=(CircleImageView) itemView.findViewById(R.id.category_img);
             cattxt=(TextView) itemView.findViewById(R.id.category_nm);
         }

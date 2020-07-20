@@ -68,13 +68,11 @@ public class ProductCardViewHolder extends RecyclerView.ViewHolder implements Vi
         this.pm=pm;
         this.c1=c1;
         itemView.setOnClickListener(this);
-        //  tv_size=(TextView)itemView.findViewById(R.id.foodsize);
         tv_price=(TextView)itemView.findViewById(R.id.foodprice);
         tv_name=(TextView)itemView.findViewById(R.id.foodname);
         im_image=(ImageView) itemView.findViewById(R.id.foodimg);
         view_detials=(Button)itemView.findViewById(R.id.viewdetails);
         view_detials.setOnClickListener(this);
-        //view_detials.setVisibility(View.GONE);
     }
         @Override
         public void onClick(View v) {
@@ -89,34 +87,13 @@ public class ProductCardViewHolder extends RecyclerView.ViewHolder implements Vi
                 b1.putString("e",pm1.getId());
                 b1.putString("a",pm1.getProduct_name());
                 b1.putString("b",pm1.getProduct_price());
-//                b1.putString("g",pm1.getMedium_price());
-//                b1.putString("h",pm1.getLarge_price());
                 b1.putString("c",String.valueOf(pm1.getProduct_img()));
                 b1.putString("d",pm1.getIngridient_id());
                 b1.putString("f",pm1.getProduct_discription());
                 pdf1.setArguments(b1);
                 activity_frag1.getSupportFragmentManager().beginTransaction().replace(R.id.ui,
                         pdf1).addToBackStack(null).commit();
-//boolean isExsits=new ProductsStorage(v.getContext()).checkFoodexsists(
-//        Integer.parseInt(pm1.getId()));
-//if(!isExsits)
-//            {  new ProductsStorage(v.getContext()).addTocart(
-//                        new CartModel(
-//                                Integer.parseInt(pm1.getId()),
-//                                pm1.product_name,
-//                                "1",
-//                                pm1.getLarge_price()
-//                                ,prod_img+pm1.getProduct_img()
-//                                ,"Large"
-//
-//                        ));}
-//
-//else {
-//
-//   new ProductsStorage(v.getContext()).increaseCart( Integer.parseInt(pm1.getId()));
-//}
-//                Toast.makeText(v.getContext(), "Item Succesfully add in cart:",
-//                        Toast.LENGTH_SHORT).show();
+
                 break;
             case R.id.p_card:
                 //product data send to details fragment
@@ -126,8 +103,6 @@ public class ProductCardViewHolder extends RecyclerView.ViewHolder implements Vi
                 b.putString("e",pm1.getId());
                 b.putString("a",pm1.getProduct_name());
                 b.putString("b",pm1.getProduct_price());
-//                b.putString("g",pm1.getMedium_price());
-//                b.putString("h",pm1.getLarge_price());
                 b.putString("c",String.valueOf(pm1.getProduct_img()));
                 b.putString("d",pm1.getIngridient_id());
                 b.putString("f",pm1.getProduct_discription());

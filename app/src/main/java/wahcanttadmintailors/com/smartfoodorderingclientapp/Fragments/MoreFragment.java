@@ -17,6 +17,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.google.android.material.appbar.MaterialToolbar;
+
+import wahcanttadmintailors.com.smartfoodorderingclientapp.FragmentHostActivity;
 import wahcanttadmintailors.com.smartfoodorderingclientapp.PreferenceClass;
 import wahcanttadmintailors.com.smartfoodorderingclientapp.R;
 
@@ -26,6 +29,7 @@ public class MoreFragment extends Fragment {
     String[] listItem;
     TextView textView;
     SharedPreferences sharedPreferences;
+    MaterialToolbar materialToolbar;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -33,10 +37,10 @@ public class MoreFragment extends Fragment {
      View v=inflater.inflate(R.layout.morefragemnt,container,false);
      sharedPreferences=getActivity().getSharedPreferences(PreferenceClass.user,
              Context.MODE_PRIVATE);
-//                MaterialToolbar materialToolbar;
-//        materialToolbar=(MaterialToolbar)v.findViewById(R.id.catAppBar);
-//        ((FragmentHostActivity) getActivity()).setSupportActionBar(materialToolbar);
-//        materialToolbar.setTitle("More Fragment");
+
+        materialToolbar=(MaterialToolbar)v.findViewById(R.id.catAppBar);
+        ((FragmentHostActivity) getActivity()).setSupportActionBar(materialToolbar);
+        materialToolbar.setTitle("More Items");
         listView=(ListView)v.findViewById(R.id.listmore);
         textView=(TextView)v.findViewById(R.id.moretext);
         listItem = getResources().getStringArray(R.array.Morelist);
@@ -59,12 +63,19 @@ public class MoreFragment extends Fragment {
                 }
 
                 if(position==1){
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString(PreferenceClass.pre_email, "");
-                    editor.putString(PreferenceClass.pre_pass, "");
-                    editor.putString(PreferenceClass.user_token,"");
-                    editor.putBoolean(PreferenceClass.IS_LOGIN, false);
-                    editor.commit();
+                    Fragment book_frag= new DealsFragment();
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    transaction.replace(R.id.ui, book_frag);
+                    transaction.addToBackStack(null);
+                    transaction.commit();
+                    if(position==2){
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putString(PreferenceClass.pre_email, "");
+                        editor.putString(PreferenceClass.pre_pass, "");
+                        editor.putString(PreferenceClass.user_token,"");
+                        editor.putBoolean(PreferenceClass.IS_LOGIN, false);
+                        editor.commit();
+                    }
 
                 }
             }

@@ -2,6 +2,7 @@
     <string name="app_name">Let\'s Eat</string>
     <string-array name="Morelist">
         <item>Book Your Table</item>
+        <item>Deals</item>
         <item>Logout</item>
     </string-array>
 

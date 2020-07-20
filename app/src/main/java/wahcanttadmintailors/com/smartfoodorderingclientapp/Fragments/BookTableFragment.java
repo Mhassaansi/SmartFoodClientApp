@@ -53,11 +53,12 @@ import static wahcanttadmintailors.com.smartfoodorderingclientapp.ApiUrls.apply_
 
 
 public class BookTableFragment extends Fragment {
+    MaterialToolbar materialToolbar;
     TextView date,time;
     Button book;
     long diff,differenceDates;
     EditText totpersons;
-    String finaltime,finaldate,persons,Token;
+  String Token;
     SharedPreferences sharedPreferences;
 
     @Nullable
@@ -71,10 +72,10 @@ public class BookTableFragment extends Fragment {
          time=v.findViewById(R.id.Time_Selection);
          book=v.findViewById(R.id.bookit);
          totpersons=v.findViewById(R.id.tot_persons);
-//        MaterialToolbar materialToolbar;
-//        materialToolbar=(MaterialToolbar)v.findViewById(R.id.catAppBar);
-//        ((FragmentHostActivity) getActivity()).setSupportActionBar(materialToolbar);
-//        materialToolbar.setTitle("Book Your Table");
+
+        materialToolbar=(MaterialToolbar)v.findViewById(R.id.catAppBar);
+        ((FragmentHostActivity) getActivity()).setSupportActionBar(materialToolbar);
+        materialToolbar.setTitle("Book Your Table");
          sharedPreferences=getActivity().getSharedPreferences(PreferenceClass.user,
                  Context.MODE_PRIVATE);
         Token=sharedPreferences.getString(PreferenceClass.user_token,"token");
@@ -147,9 +148,7 @@ time.setText(hourOfDay + ":" + minute);
                timePickerDialog.show();
            }
        });
-      finaldate=date.getText().toString().trim();
-       finaltime=time.getText().toString().trim();
-  persons=totpersons.getText().toString().trim();
+
        book.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
@@ -158,17 +157,21 @@ time.setText(hourOfDay + ":" + minute);
                    Toast.makeText(getActivity(), "Please fill all fields", Toast.LENGTH_SHORT).show();
                }
                else{
-                  // Log.d("token:",Token);
-                   Toast.makeText(getContext(), ""+Token, Toast.LENGTH_SHORT).show();
+
                    bookTable();
+                   date.setText("");
+                   time.setText("");
+                   totpersons.setText("");
                }
            }
        });
-
-
          return  v;
     }
     private void bookTable () {
+        final  String finaltime,finaldate,persons;
+        finaldate=date.getText().toString().trim();
+        finaltime=time.getText().toString().trim();
+        persons=totpersons.getText().toString().trim();
         final RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
         StringRequest stringRequest = new StringRequest(Request.Method.POST,apply_book_tabel,
                 new Response.Listener<String>() {
@@ -196,7 +199,7 @@ time.setText(hourOfDay + ":" + minute);
                     @Override
                     public void onErrorResponse(VolleyError error) {
 
-                                                if (error instanceof TimeoutError) {
+                        if (error instanceof TimeoutError) {
                             Toast.makeText(getActivity(), "time", Toast.LENGTH_SHORT).show();
                         } else if (error instanceof ServerError) {
                             Toast.makeText(getActivity(), "server", Toast.LENGTH_SHORT).show();
@@ -215,9 +218,9 @@ time.setText(hourOfDay + ":" + minute);
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("date","2020-6-9");
-                params.put("time","01:09");
-                params.put("persons","1");
+                params.put("date",finaldate);
+                params.put("time",finaltime);
+                params.put("persons",persons);
 
                 return params;
             }

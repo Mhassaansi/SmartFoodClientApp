@@ -24,7 +24,7 @@ import static wahcanttadmintailors.com.smartfoodorderingclientapp.ApiUrls.prod_i
 
 public class ProductDetailFragment extends Fragment {
     String name,s,calories,image,descrip;
-    TextView namedesp,desp,cal,totPrice,despprice;
+    TextView namedesp,desp,cal,despprice;
     ImageView mainimage,back_des;
     @Nullable
     @Override
@@ -35,7 +35,7 @@ public class ProductDetailFragment extends Fragment {
         namedesp=(TextView)v.findViewById(R.id.desp_nm);
         desp=(TextView)v.findViewById(R.id.desp_desp);
         cal=(TextView)v.findViewById(R.id.calories_amount);
-        totPrice=(TextView)v.findViewById(R.id.total_desp_amnt);
+        //totPrice=(TextView)v.findViewById(R.id.total_desp_amnt);
         despprice=(TextView)v.findViewById(R.id.price_product);
         mainimage=(ImageView)v.findViewById(R.id.mainimage);
         back_des=(ImageView)v.findViewById(R.id.p_detail_back);
@@ -52,6 +52,7 @@ public class ProductDetailFragment extends Fragment {
         Picasso.get().load(prod_img+image).into(mainimage);
         desp.setText(descrip);
         despprice.setText(s);
+        namedesp.setText(name);
         return v;
     }
 

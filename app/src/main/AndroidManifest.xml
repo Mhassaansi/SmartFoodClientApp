@@ -14,14 +14,18 @@
         android:theme="@style/AppTheme">
 
 
-        <activity android:name=".Login_base"></activity>
+        <activity android:name=".Login_base"
+            android:screenOrientation="portrait"
+            ></activity>
         <activity
             android:name=".FragmentHostActivity"
-            android:windowSoftInputMode="adjustPan|adjustUnspecified"></activity>
+            android:windowSoftInputMode="adjustPan|adjustUnspecified"
+            android:screenOrientation="portrait"></activity>
 
         <activity
             android:name=".SplashScreen"
-            android:screenOrientation="fullSensor">
+            android:screenOrientation="fullSensor"
+           >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

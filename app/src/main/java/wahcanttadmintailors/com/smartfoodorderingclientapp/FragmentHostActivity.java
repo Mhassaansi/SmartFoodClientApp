@@ -25,6 +25,11 @@ public class FragmentHostActivity extends AppCompatActivity {
    FrameLayout frameLayout;
 //    View noti_badge;
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
+
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 //private Object CategoryFragment;

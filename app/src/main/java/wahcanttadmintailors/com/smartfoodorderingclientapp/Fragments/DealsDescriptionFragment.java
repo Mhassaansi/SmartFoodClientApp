@@ -22,64 +22,32 @@ import static wahcanttadmintailors.com.smartfoodorderingclientapp.ApiUrls.deal_i
 
 
 public class DealsDescriptionFragment extends Fragment {
-    String dealname,dealprice ,dealimage,dealquan,dealid,dealdescrip;
-    int bundle_id;
-    TextView dealnamedesp,dealdesp,dealquantity,totPrice,despprice,p_desp;
-    ImageView dealmainimage,dealplus,dealminus;
-    Button dealadd_tp_cart;
-    int count=1;
+    String dealname,dealprice ,dealimage,dealdescrip;
+    TextView dealnamedesp,dealdesp,dealdespprice;
+    ImageView dealmainimage;
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup
             container, @Nullable Bundle savedInstanceState) {
 
-//       int i=Integer.parseInt(image);
-        View v= inflater.inflate(R.layout.productdetails,container,false);
+
+        View v= inflater.inflate(R.layout.deals_the_month,container,false);
         dealnamedesp=(TextView)v.findViewById(R.id.deal_prod_nm);
         dealdesp=(TextView)v.findViewById(R.id.deal_description);
-        dealquantity=(TextView)v.findViewById(R.id.deal_quantity_amount);
-        totPrice=(TextView)v.findViewById(R.id.total_desp_amnt);
-      //  despprice=(TextView)v.findViewById(R.id.desp_price);
         dealmainimage=(ImageView)v.findViewById(R.id.deal_mainimage);
-        dealadd_tp_cart=(Button)v.findViewById(R.id.deal_add_to_cart);
-        dealplus=(ImageView)v.findViewById(R.id.deal_add) ;
-        dealminus=(ImageView)v.findViewById(R.id.deal_minus);
-        dealquan=dealquantity.getText().toString().trim();
+        dealdespprice=(TextView)v.findViewById(R.id.deal_price);
+
         Bundle b = getArguments();
         dealname = b.getString("a");
         dealprice = b.getString("b");
         dealimage = b.getString("c");
-        dealid=b.getString("e");
         dealdescrip=b.getString("f");
         Picasso.get().load(deal_img+dealimage).into(dealmainimage);
-        dealplus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                count++;
-                dealquantity.setText(String.valueOf(count));
-                int mul=Integer.parseInt(dealprice)*count;
-                totPrice.setText(String.valueOf(mul));
-
-            }
-        });
-        dealminus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dealdesp.setText(dealdescrip);
-                if(count==1)
-                    dealminus.setEnabled(false);
-                else {
-                    count--;
-                    dealquantity.setText(String.valueOf(count));
-                    int mul=Integer.parseInt(dealprice)*count;
-                    totPrice.setText(String.valueOf(mul));
-                } }
-        });
-        dealnamedesp.setText(String.valueOf(dealname));
-        despprice.setText(String.valueOf(dealprice));
-        totPrice.setText(String.valueOf(dealprice));
-
-
+        dealnamedesp.setText(dealname);
+        dealdesp.setText(dealdescrip);
+        dealdespprice.setText(dealprice);
         return v;
     }
 }

@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -24,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:fontFamily="@font/muli_extrabold"
-            android:text="Login"
+            android:text="Crate Account"
             android:textAllCaps="true"
             android:textColor="@color/dark_Green"
             android:textSize="40sp"
@@ -45,15 +44,17 @@
                 app:endIconMode="clear_text"
                 app:endIconTint="@color/Black"
                 app:hintTextColor="@color/dark_Green"
-                app:startIconDrawable="@drawable/ic_person"
+                app:startIconDrawable="@drawable/ic_create"
                 >
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/email"
+                    android:id="@+id/name_signup"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:fontFamily="@font/muli"
-                    android:inputType="textEmailAddress"
+                    android:inputType="text"
+
                     >
+
                 </com.google.android.material.textfield.TextInputEditText>
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -62,7 +63,31 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
-                android:hint="Enter Password"
+                android:hint="Enter your Email"
+                app:boxStrokeColor="@color/dark_Green"
+                app:boxStrokeWidthFocused="2dp"
+                app:endIconMode="clear_text"
+                app:endIconTint="@color/Black"
+                app:hintTextColor="@color/dark_Green"
+                app:startIconDrawable="@drawable/ic_email"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/email_signup"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/muli"
+                    android:inputType="textEmailAddress"
+                    >
+
+                </com.google.android.material.textfield.TextInputEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:hint="Enter your Password"
                 app:boxStrokeColor="@color/dark_Green"
                 app:boxStrokeWidthFocused="2dp"
                 app:endIconMode="password_toggle"
@@ -71,7 +96,32 @@
                 app:startIconDrawable="@drawable/ic_lock_"
                 >
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/password"
+                    android:id="@+id/password_signup"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/muli"
+                    android:inputType="textPassword"
+
+                    >
+
+                </com.google.android.material.textfield.TextInputEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:hint="Confirm Password"
+                app:boxStrokeColor="@color/dark_Green"
+                app:boxStrokeWidthFocused="2dp"
+                app:endIconMode="password_toggle"
+                app:endIconTint="@color/Black"
+                app:hintTextColor="@color/dark_Green"
+                app:startIconDrawable="@drawable/ic_lock_"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/password_signup_confirm"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:fontFamily="@font/muli"
@@ -82,27 +132,27 @@
 
             </com.google.android.material.textfield.TextInputLayout>
             <Button
-                android:id="@+id/sigin_btn"
+                android:id="@+id/signup_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:background="@color/dark_Green"
-                android:text="Login"
+                android:text="Next"
                 android:textColor="@color/white"
                 >
 
             </Button>
             <Button
-                android:id="@+id/not_member"
+                android:id="@+id/already_signup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:background="#00000000"
-                android:text="Create New account"
+                android:text="Login"
                 android:textColor="@color/dark_Green"
                 >
 
             </Button>
         </LinearLayout>
     </LinearLayout>
-    </ScrollView>
+</ScrollView>

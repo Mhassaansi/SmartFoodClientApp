@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -46,10 +47,8 @@ public class DealsAdapter extends RecyclerView.Adapter<DealsAdapter.DealsViewHol
     @Override
     public void onBindViewHolder(@NonNull DealsViewHolder holder, int position) {
         DealsModel dm=model.get(position);
-
         Picasso.get().load(deal_img+dm.getDeal_img()).into(holder.img);
         holder.deal_name.setText(dm.getDeal_name());
-
     }
 
     @Override
@@ -59,38 +58,42 @@ public class DealsAdapter extends RecyclerView.Adapter<DealsAdapter.DealsViewHol
     public class DealsViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public ImageView img;
         public TextView deal_name;
-        public TextView deal_des;
-        Context cc;
-        ArrayList<DealsModel>cm;
-        public DealsViewHolder(@NonNull View itemView,Context cc,ArrayList<DealsModel>cm) {
+        Context dc;
+        ArrayList<DealsModel>dm;
+        public DealsViewHolder(@NonNull View itemView,Context dc,ArrayList<DealsModel>dm) {
             super(itemView);
-            this.cc=cc;
-            this.cm=cm;
+            itemView.setOnClickListener(this);
+            this.dc=dc;
+            this.dm=dm;
             img=(ImageView)itemView.findViewById(R.id.testimg);
             deal_name=(TextView)itemView.findViewById(R.id.dealname);
-            deal_des=(TextView)itemView.findViewById(R.id.deal_description);
         }
 
         @Override
         public void onClick(View v) {
             int positon=getAdapterPosition();
-            DealsModel pm1=this.cm.get(positon);
+            DealsModel dm1=this.dm.get(positon);
                     //deals data send to details fragment
+            switch(v.getId()){
+                case R.id.dealcard:
                     DealsDescriptionFragment ddf=new DealsDescriptionFragment();
                     FragmentHostActivity activity_frag=(FragmentHostActivity) v.getContext();
                     Bundle b=new Bundle();
-                    b.putString("e",pm1.getId());
-                    b.putString("a",pm1.getDeal_name());
-                    b.putString("b",pm1.getDeal_price());
-                    b.putString("c",String.valueOf(pm1.getDeal_img()));
-                    b.putString("f",pm1.getDeal_disc());
+                    b.putString("e",dm1.getId());
+                    b.putString("a",dm1.getDeal_name());
+                    b.putString("b",dm1.getDeal_price());
+                    b.putString("c",String.valueOf(dm1.getDeal_img()));
+                    b.putString("f",dm1.getDeal_disc());
                     ddf.setArguments(b);
                     activity_frag.getSupportFragmentManager().beginTransaction().replace(R.id.ui,
                             ddf).addToBackStack(null).commit();
+                    break;
 
             }
-//            activity_frag.getSupportFragmentManager().beginTransaction().replace(R.id.ui,
-//                    pdf).addToBackStack(null).commit();
+
+
+            }
+
         }
 
     }
