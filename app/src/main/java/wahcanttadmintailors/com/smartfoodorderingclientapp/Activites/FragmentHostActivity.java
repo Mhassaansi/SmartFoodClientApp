@@ -1,4 +1,4 @@
-package wahcanttadmintailors.com.smartfoodorderingclientapp;
+package wahcanttadmintailors.com.smartfoodorderingclientapp.Activites;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -14,6 +14,7 @@ import androidx.fragment.app.FragmentTransaction;
 import wahcanttadmintailors.com.smartfoodorderingclientapp.Fragments.CategoryFragment;
 import wahcanttadmintailors.com.smartfoodorderingclientapp.Fragments.MainFragment;
 import wahcanttadmintailors.com.smartfoodorderingclientapp.Fragments.MoreFragment;
+import wahcanttadmintailors.com.smartfoodorderingclientapp.R;
 
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;

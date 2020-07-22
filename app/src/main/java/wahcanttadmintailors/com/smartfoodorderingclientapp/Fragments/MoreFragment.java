@@ -20,9 +20,9 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.appbar.MaterialToolbar;
 
-import wahcanttadmintailors.com.smartfoodorderingclientapp.FragmentHostActivity;
-import wahcanttadmintailors.com.smartfoodorderingclientapp.Login_base;
-import wahcanttadmintailors.com.smartfoodorderingclientapp.PreferenceClass;
+import wahcanttadmintailors.com.smartfoodorderingclientapp.Activites.FragmentHostActivity;
+import wahcanttadmintailors.com.smartfoodorderingclientapp.Activites.Login_base;
+import wahcanttadmintailors.com.smartfoodorderingclientapp.javaclasses.PreferenceClass;
 import wahcanttadmintailors.com.smartfoodorderingclientapp.R;
 
 
@@ -80,6 +80,8 @@ public class MoreFragment extends Fragment {
                     editor.putString(PreferenceClass.user_token,"");
                     editor.putBoolean(PreferenceClass.IS_LOGIN, false);
                     editor.commit();
+                    Intent it=new Intent(getActivity(), Login_base.class);
+                    startActivity(it);
 
                 }
             }

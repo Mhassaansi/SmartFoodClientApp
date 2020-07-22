@@ -15,7 +15,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkError;
@@ -36,12 +35,12 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-import wahcanttadmintailors.com.smartfoodorderingclientapp.FragmentHostActivity;
-import wahcanttadmintailors.com.smartfoodorderingclientapp.Login_base;
-import wahcanttadmintailors.com.smartfoodorderingclientapp.PreferenceClass;
+import wahcanttadmintailors.com.smartfoodorderingclientapp.Activites.FragmentHostActivity;
+import wahcanttadmintailors.com.smartfoodorderingclientapp.Activites.Login_base;
+import wahcanttadmintailors.com.smartfoodorderingclientapp.javaclasses.PreferenceClass;
 import wahcanttadmintailors.com.smartfoodorderingclientapp.R;
 
-import static wahcanttadmintailors.com.smartfoodorderingclientapp.ApiUrls.sign_in;
+import static wahcanttadmintailors.com.smartfoodorderingclientapp.javaclasses.ApiUrls.sign_in;
 
 
 public class SiginFragment extends Fragment {
@@ -114,16 +113,14 @@ if(response.equals("Invalid User")){
     Toast.makeText(getActivity(), "Login Failed", Toast.LENGTH_SHORT).show();
 }
 else{
+    Toast.makeText(getActivity(), "LOGIN SUCCESFULLY",
+            Toast.LENGTH_LONG).show();
     SharedPreferences.Editor editor = sPref.edit();
     editor.putString(PreferenceClass.pre_email, email.getText().toString());
     editor.putString(PreferenceClass.pre_pass, password.getText().toString());
     editor.putString(PreferenceClass.user_token,TOKEN_CODE);
     editor.putBoolean(PreferenceClass.IS_LOGIN, true);
     editor.commit();
-//            MainFragment df= new MainFragment();
-//            FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
-//            ft.replace(R.id.ui,df);
-//            ft.commit();
     Intent i=new Intent(getContext(), FragmentHostActivity.class);
     startActivity(i);
 }

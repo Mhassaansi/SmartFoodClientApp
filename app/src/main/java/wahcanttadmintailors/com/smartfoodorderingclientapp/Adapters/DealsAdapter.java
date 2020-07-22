@@ -6,14 +6,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-import wahcanttadmintailors.com.smartfoodorderingclientapp.FragmentHostActivity;
+import wahcanttadmintailors.com.smartfoodorderingclientapp.Activites.FragmentHostActivity;
 import wahcanttadmintailors.com.smartfoodorderingclientapp.Fragments.DealsDescriptionFragment;
 import wahcanttadmintailors.com.smartfoodorderingclientapp.Model.DealsModel;
 import wahcanttadmintailors.com.smartfoodorderingclientapp.R;
@@ -22,7 +21,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-import static wahcanttadmintailors.com.smartfoodorderingclientapp.ApiUrls.deal_img;
+import static wahcanttadmintailors.com.smartfoodorderingclientapp.javaclasses.ApiUrls.deal_img;
 
 
 public class DealsAdapter extends RecyclerView.Adapter<DealsAdapter.DealsViewHolder>{

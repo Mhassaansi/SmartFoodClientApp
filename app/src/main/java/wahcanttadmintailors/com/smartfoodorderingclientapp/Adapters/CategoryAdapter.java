@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-import wahcanttadmintailors.com.smartfoodorderingclientapp.FragmentHostActivity;
+import wahcanttadmintailors.com.smartfoodorderingclientapp.Activites.FragmentHostActivity;
 import wahcanttadmintailors.com.smartfoodorderingclientapp.Fragments.ProductDetailFragment;
 import wahcanttadmintailors.com.smartfoodorderingclientapp.Fragments.ProductFragment;
 import wahcanttadmintailors.com.smartfoodorderingclientapp.Model.CaetgoryModel;
@@ -23,7 +23,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import wahcanttadmintailors.com.smartfoodorderingclientapp.R;
 
 
-import static wahcanttadmintailors.com.smartfoodorderingclientapp.ApiUrls.catimg_path;
+import static wahcanttadmintailors.com.smartfoodorderingclientapp.javaclasses.ApiUrls.catimg_path;
 
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.CategoryViewHolderTest>{

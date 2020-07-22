@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
@@ -29,11 +28,9 @@ import com.android.volley.toolbox.Volley;
 import com.google.android.material.appbar.MaterialToolbar;
 import wahcanttadmintailors.com.smartfoodorderingclientapp.Adapters.ProductAdapter;
 
-import wahcanttadmintailors.com.smartfoodorderingclientapp.FragmentHostActivity;
+import wahcanttadmintailors.com.smartfoodorderingclientapp.Activites.FragmentHostActivity;
 import wahcanttadmintailors.com.smartfoodorderingclientapp.Model.ProductModel;
 import wahcanttadmintailors.com.smartfoodorderingclientapp.R;
-
-import com.nex3z.notificationbadge.NotificationBadge;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -44,7 +41,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static wahcanttadmintailors.com.smartfoodorderingclientapp.Adapters.CategoryAdapter.categoryid;
-import static wahcanttadmintailors.com.smartfoodorderingclientapp.ApiUrls.products_Api;
+import static wahcanttadmintailors.com.smartfoodorderingclientapp.javaclasses.ApiUrls.products_Api;
 
 
 public class ProductFragment extends Fragment {

@@ -33,10 +33,10 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-import wahcanttadmintailors.com.smartfoodorderingclientapp.Login_base;
+import wahcanttadmintailors.com.smartfoodorderingclientapp.Activites.Login_base;
 import wahcanttadmintailors.com.smartfoodorderingclientapp.R;
 
-import static wahcanttadmintailors.com.smartfoodorderingclientapp.ApiUrls.sign_up;
+import static wahcanttadmintailors.com.smartfoodorderingclientapp.javaclasses.ApiUrls.sign_up;
 
 
 public class SiginupFragment extends Fragment {
@@ -79,9 +79,9 @@ public class SiginupFragment extends Fragment {
                 }
                 else {
                     Singup();
-//                    name.setText("");
-//                    email.setText("");
-//                    password.setText("");
+                    name.setText("");
+                    email.setText("");
+                    password.setText("");
                 }
             }
         });
@@ -102,7 +102,8 @@ public class SiginupFragment extends Fragment {
                             JSONObject jsonObject = new JSONObject(response);
                             String code = jsonObject.optString("code");
                             String message = jsonObject.optString("message");
-                            Toast.makeText(getActivity(), "Data save Sucssefully", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "Data save Sucssefully",
+                                    Toast.LENGTH_SHORT).show();
                             if(response.equals(code)){
                                         SiginFragment sigin=new SiginFragment();
         FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();

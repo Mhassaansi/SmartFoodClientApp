@@ -1,4 +1,4 @@
-package wahcanttadmintailors.com.smartfoodorderingclientapp;
+package wahcanttadmintailors.com.smartfoodorderingclientapp.javaclasses;
 
 public class PreferenceClass {
     public static final String ORDER_HEADER = "orderHeader";

@@ -1,4 +1,4 @@
-package wahcanttadmintailors.com.smartfoodorderingclientapp;
+package wahcanttadmintailors.com.smartfoodorderingclientapp.javaclasses;
 
 
 public class ApiUrls {

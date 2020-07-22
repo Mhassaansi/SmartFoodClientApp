@@ -35,13 +35,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import wahcanttadmintailors.com.smartfoodorderingclientapp.Adapters.CategoryAdapter;
 import wahcanttadmintailors.com.smartfoodorderingclientapp.Adapters.DealsAdapter;
-import wahcanttadmintailors.com.smartfoodorderingclientapp.FragmentHostActivity;
+import wahcanttadmintailors.com.smartfoodorderingclientapp.Activites.FragmentHostActivity;
 import wahcanttadmintailors.com.smartfoodorderingclientapp.Model.DealsModel;
 import wahcanttadmintailors.com.smartfoodorderingclientapp.R;
 
-import static wahcanttadmintailors.com.smartfoodorderingclientapp.ApiUrls.view_deals;
+import static wahcanttadmintailors.com.smartfoodorderingclientapp.javaclasses.ApiUrls.view_deals;
 
 public class DealsFragment extends Fragment {
     RecyclerView recyclerView;

@@ -44,12 +44,12 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import wahcanttadmintailors.com.smartfoodorderingclientapp.FragmentHostActivity;
-import wahcanttadmintailors.com.smartfoodorderingclientapp.PreferenceClass;
+import wahcanttadmintailors.com.smartfoodorderingclientapp.Activites.FragmentHostActivity;
+import wahcanttadmintailors.com.smartfoodorderingclientapp.javaclasses.PreferenceClass;
 import wahcanttadmintailors.com.smartfoodorderingclientapp.R;
 
 
-import static wahcanttadmintailors.com.smartfoodorderingclientapp.ApiUrls.apply_book_tabel;
+import static wahcanttadmintailors.com.smartfoodorderingclientapp.javaclasses.ApiUrls.apply_book_tabel;
 
 
 public class BookTableFragment extends Fragment {
@@ -182,14 +182,9 @@ time.setText(hourOfDay + ":" + minute);
                             JSONObject jsonObject = new JSONObject(response);
                           String code = jsonObject.optString("code");
                            String message = jsonObject.optString("message");
-                           if(response.equals("We Will Mail You For Reservation Confirmation!")){
-                               Toast.makeText(getActivity(), "We Will Mail You For Reservation Confirmation!",
-                                       Toast.LENGTH_SHORT).show();
-                           }
-
                             // finish();
                         } catch (JSONException e) {
-                            Toast.makeText(getActivity(), " Failed", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "We Will Mail You For Reservation Confirmation!", Toast.LENGTH_SHORT).show();
                             e.printStackTrace();
                         }
 

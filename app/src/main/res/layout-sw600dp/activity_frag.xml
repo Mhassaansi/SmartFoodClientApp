@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/grey"
     android:id="@+id/ui"
-    tools:context=".FragmentHostActivity">
+    tools:context=".Activites.FragmentHostActivity">
 
     <FrameLayout
 

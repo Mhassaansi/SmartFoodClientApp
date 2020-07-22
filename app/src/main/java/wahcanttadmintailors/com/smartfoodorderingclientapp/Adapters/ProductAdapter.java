@@ -12,7 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import wahcanttadmintailors.com.smartfoodorderingclientapp.FragmentHostActivity;
+import wahcanttadmintailors.com.smartfoodorderingclientapp.Activites.FragmentHostActivity;
 import wahcanttadmintailors.com.smartfoodorderingclientapp.Fragments.ProductDetailFragment;
 import wahcanttadmintailors.com.smartfoodorderingclientapp.Model.ProductModel;
 import wahcanttadmintailors.com.smartfoodorderingclientapp.R;
@@ -21,7 +21,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-import static wahcanttadmintailors.com.smartfoodorderingclientapp.ApiUrls.prod_img;
+import static wahcanttadmintailors.com.smartfoodorderingclientapp.javaclasses.ApiUrls.prod_img;
 
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductCardViewHolder>{

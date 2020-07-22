@@ -30,7 +30,7 @@ import com.android.volley.toolbox.Volley;
 import com.google.android.material.appbar.MaterialToolbar;
 import wahcanttadmintailors.com.smartfoodorderingclientapp.Adapters.CategoryAdapter;
 
-import wahcanttadmintailors.com.smartfoodorderingclientapp.FragmentHostActivity;
+import wahcanttadmintailors.com.smartfoodorderingclientapp.Activites.FragmentHostActivity;
 import wahcanttadmintailors.com.smartfoodorderingclientapp.Model.CaetgoryModel;
 import wahcanttadmintailors.com.smartfoodorderingclientapp.R;
 
@@ -43,7 +43,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import static wahcanttadmintailors.com.smartfoodorderingclientapp.ApiUrls.category_Api;
+import static wahcanttadmintailors.com.smartfoodorderingclientapp.javaclasses.ApiUrls.category_Api;
 
 
 public class CategoryFragment extends Fragment {

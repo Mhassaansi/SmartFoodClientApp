@@ -13,13 +13,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.google.android.material.badge.BadgeDrawable;
-
 import com.squareup.picasso.Picasso;
 
 import wahcanttadmintailors.com.smartfoodorderingclientapp.R;
 
-import static wahcanttadmintailors.com.smartfoodorderingclientapp.ApiUrls.prod_img;
+import static wahcanttadmintailors.com.smartfoodorderingclientapp.javaclasses.ApiUrls.prod_img;
 
 
 public class ProductDetailFragment extends Fragment {

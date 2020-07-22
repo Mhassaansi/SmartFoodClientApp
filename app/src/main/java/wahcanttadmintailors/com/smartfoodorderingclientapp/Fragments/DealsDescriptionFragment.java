@@ -4,10 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,11 +16,11 @@ import com.squareup.picasso.Picasso;
 
 import wahcanttadmintailors.com.smartfoodorderingclientapp.R;
 
-import static wahcanttadmintailors.com.smartfoodorderingclientapp.ApiUrls.deal_img;
+import static wahcanttadmintailors.com.smartfoodorderingclientapp.javaclasses.ApiUrls.deal_img;
 
 
 public class DealsDescriptionFragment extends Fragment {
-    String dealname,dealprice ,dealimage,dealdescrip;
+    String dealname,dealprice,dealimage,dealdescrip;
     TextView dealnamedesp,dealdesp,dealdespprice;
     ImageView dealmainimage;
 

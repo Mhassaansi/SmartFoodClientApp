@@ -1,4 +1,4 @@
-package wahcanttadmintailors.com.smartfoodorderingclientapp;
+package wahcanttadmintailors.com.smartfoodorderingclientapp.Activites;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 import wahcanttadmintailors.com.smartfoodorderingclientapp.Fragments.welcome;
+import wahcanttadmintailors.com.smartfoodorderingclientapp.javaclasses.PreferenceClass;
+import wahcanttadmintailors.com.smartfoodorderingclientapp.R;
 
 public class Login_base extends AppCompatActivity {
     SharedPreferences sharedPreferences;
@@ -29,7 +31,7 @@ public class Login_base extends AppCompatActivity {
             ft.commit();
         }
         else {
-            Intent i=new Intent(Login_base.this,FragmentHostActivity.class);
+            Intent i=new Intent(Login_base.this, FragmentHostActivity.class);
             startActivity(i);
         }
     }
