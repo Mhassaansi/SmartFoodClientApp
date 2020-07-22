@@ -18,6 +18,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 
 import com.android.volley.AuthFailureError;
@@ -32,6 +34,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.shape.MaterialShapeDrawable;
 
 
 import org.json.JSONException;
@@ -72,6 +75,15 @@ public class BookTableFragment extends Fragment {
          time=v.findViewById(R.id.Time_Selection);
          book=v.findViewById(R.id.bookit);
          totpersons=v.findViewById(R.id.tot_persons);
+//Text view desiginig
+        MaterialShapeDrawable shapeDrawable = new MaterialShapeDrawable();
+        shapeDrawable.setFillColor(ContextCompat.getColorStateList(getActivity(),
+                android.R.color.transparent));
+        shapeDrawable.setStroke(1.0f, ContextCompat.getColor(getActivity(),
+                R.color.dark_Green));
+        ViewCompat.setBackground(date,shapeDrawable);
+        ViewCompat.setBackground(time,shapeDrawable);
+
 
         materialToolbar=(MaterialToolbar)v.findViewById(R.id.catAppBar);
         ((FragmentHostActivity) getActivity()).setSupportActionBar(materialToolbar);

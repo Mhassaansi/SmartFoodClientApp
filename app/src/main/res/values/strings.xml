@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Let\'s Eat</string>
+    <string name="app_name">Client App</string>
     <string-array name="Morelist">
         <item>Book Your Table</item>
         <item>Deals</item>

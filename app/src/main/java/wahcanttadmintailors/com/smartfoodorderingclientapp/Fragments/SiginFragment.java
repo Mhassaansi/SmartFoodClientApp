@@ -118,9 +118,21 @@ else{
     editor.putString(PreferenceClass.pre_pass, password.getText().toString());
     editor.putString(PreferenceClass.user_token,TOKEN_CODE);
     editor.putBoolean(PreferenceClass.IS_LOGIN, true);
-    editor.commit();
+
+
     Intent i=new Intent(getContext(), FragmentHostActivity.class);
     startActivity(i);
+    editor.commit();
+
+    if (getActivity() != null) {
+        getActivity().getSupportFragmentManager().beginTransaction().
+                remove(getParentFragment()).commit();
+        try {
+            getFragmentManager().popBackStack();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
                            //     requestQueue.stop();
                             } catch (JSONException e) {

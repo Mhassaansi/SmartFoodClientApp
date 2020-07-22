@@ -1,119 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white">
     <include
         layout="@layout/category_bar"
         />
-<!--<FrameLayout-->
-<!--    android:id="@+id/frame_1st"-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="30dp"-->
-<!--    android:background="@color/dark_Green">-->
-<!--    <TextView-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_gravity="center"-->
-<!--        android:layout_marginTop="0dp"-->
-<!--        android:text="Book Your Table Know"-->
-<!--        android:textColor="@color/white"-->
-<!--        android:textSize="20sp"-->
-<!--        android:textStyle="bold"-->
-<!--        >-->
-<!--    </TextView>-->
-<!--</FrameLayout>-->
-    <TextView
-        android:id="@+id/Date"
-        android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="70dp"
-        android:text="Select Booking Date"
-        android:textColor="@color/dark_Green"
-        android:textSize="15sp">
 
-    </TextView>
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/Date_Selection"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_toRightOf="@id/Date"
         android:text="Select Date"
         android:textColor="@color/Black"
         android:layout_marginTop="70dp"
         android:textSize="15sp"
+        android:gravity="center"
         >
-    </TextView>
-    <TextView
-        android:id="@+id/Time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/Date_Selection"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="10dp"
-        android:text="Seltect Booking Time"
-        android:textColor="@color/dark_Green"
-        android:textSize="15sp"
-        >
-    </TextView>
-    <TextView
+    </com.google.android.material.textview.MaterialTextView>
+
+
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/Time_Selection"
-        android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+      android:layout_height="50dp"
+        android:layout_marginRight="10dp"
         android:layout_below="@id/Date_Selection"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:layout_toRightOf="@id/Time"
-        android:text="Seltect Time"
+        android:text="Select Time"
         android:textColor="@color/Black"
         android:textSize="15sp"
+        android:gravity="center"
         >
-    </TextView>
-    <TextView
-        android:id="@+id/persons"
-        android:layout_width="wrap_content"
+    </com.google.android.material.textview.MaterialTextView>
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/Time"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="10dp"
-        android:text="Total Persons"
-        android:textColor="@color/dark_Green"
-        android:textSize="15sp"
-        >
-    </TextView>
-    <EditText
-        android:id="@+id/tot_persons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:hint="Enter Persons"
+        app:boxStrokeColor="@color/dark_Green"
+        app:boxStrokeWidthFocused="2dp"
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/Black"
+        app:hintTextColor="@color/dark_Green"
+        app:startIconDrawable="@drawable/ic_person"
         android:layout_below="@id/Time_Selection"
+        android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="5dp"
-        android:layout_toRightOf="@id/persons"
-        android:hint="Enter Total Persons"
-        android:inputType="number"
-        android:textColor="@color/Black"
-        android:textSize="10sp"
-        android:textStyle="bold"
+        android:layout_marginRight="10dp"
+        android:id="@+id/textfeid"
         >
-    </EditText>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tot_persons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/muli"
+            android:inputType="number"
+            >
+        </com.google.android.material.textfield.TextInputEditText>
+
+
+
+    </com.google.android.material.textfield.TextInputLayout>
     <Button
         android:id="@+id/bookit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tot_persons"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginRight="10dp"
         android:background="@drawable/grren_button"
         android:text="Apply for Booking"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textStyle="bold"
-        ></Button>
+        android:layout_below="@+id/textfeid"
+        android:textStyle="bold"></Button>
 </RelativeLayout>

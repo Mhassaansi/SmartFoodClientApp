@@ -80,6 +80,17 @@ public class MoreFragment extends Fragment {
                     editor.putString(PreferenceClass.user_token,"");
                     editor.putBoolean(PreferenceClass.IS_LOGIN, false);
                     editor.commit();
+
+                    if (getActivity() != null) {
+                        getActivity().getSupportFragmentManager().beginTransaction().
+                                remove(getParentFragment()).commit();
+                        try {
+                            getFragmentManager().popBackStack();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+
                     Intent it=new Intent(getActivity(), Login_base.class);
                     startActivity(it);
 
