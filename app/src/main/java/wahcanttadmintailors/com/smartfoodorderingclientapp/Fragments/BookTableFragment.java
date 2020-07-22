@@ -76,6 +76,7 @@ public class BookTableFragment extends Fragment {
         materialToolbar=(MaterialToolbar)v.findViewById(R.id.catAppBar);
         ((FragmentHostActivity) getActivity()).setSupportActionBar(materialToolbar);
         materialToolbar.setTitle("Book Your Table");
+
          sharedPreferences=getActivity().getSharedPreferences(PreferenceClass.user,
                  Context.MODE_PRIVATE);
         Token=sharedPreferences.getString(PreferenceClass.user_token,"token");
@@ -184,7 +185,9 @@ time.setText(hourOfDay + ":" + minute);
                            String message = jsonObject.optString("message");
                             // finish();
                         } catch (JSONException e) {
-                            Toast.makeText(getActivity(), "We Will Mail You For Reservation Confirmation!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(),
+                                    "We Will Mail You For Reservation Confirmation!",
+                                    Toast.LENGTH_SHORT).show();
                             e.printStackTrace();
                         }
 

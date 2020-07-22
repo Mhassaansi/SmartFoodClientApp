@@ -54,7 +54,7 @@ public class MoreFragment extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 // TODO Auto-generated method stub
                 String value=adapter.getItem(position);
-                Toast.makeText(getContext(),value,Toast.LENGTH_SHORT).show();
+               // Toast.makeText(getContext(),value,Toast.LENGTH_SHORT).show();
                 if(position==0)
                 {
                     Fragment book_frag= new BookTableFragment();

@@ -103,11 +103,9 @@ public class SiginFragment extends Fragment {
                             try {
                                 Log.d("Responce:", response);
                               JSONObject jsonObject = new JSONObject(response);
-                             // Toast.makeText(getActivity(), ""+response, Toast.LENGTH_SHORT).show();
                                TOKEN_CODE = jsonObject.optString("token");
 
-//                                Toast.makeText(getActivity(), ""+TOKEN_CODE,
-//                                        Toast.LENGTH_LONG).show();
+
 
 if(response.equals("Invalid User")){
     Toast.makeText(getActivity(), "Login Failed", Toast.LENGTH_SHORT).show();
