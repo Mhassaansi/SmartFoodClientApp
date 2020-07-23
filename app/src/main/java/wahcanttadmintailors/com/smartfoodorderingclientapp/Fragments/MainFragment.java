@@ -2,6 +2,7 @@ package wahcanttadmintailors.com.smartfoodorderingclientapp.Fragments;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -176,4 +177,5 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         }
 
     }
+
 }
