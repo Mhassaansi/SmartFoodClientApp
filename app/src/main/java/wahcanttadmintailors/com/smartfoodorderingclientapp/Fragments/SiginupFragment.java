@@ -53,12 +53,12 @@ public class SiginupFragment extends Fragment {
         password=(EditText)v.findViewById(R.id.password_signup);
         already_singup=(Button) v.findViewById(R.id.already_signup);
         sigup_btn=(Button)v.findViewById(R.id.signup_btn);
-        password=(EditText)v.findViewById(R.id.password_signup_confirm);
+        confirm=(EditText)v.findViewById(R.id.password_signup_confirm);
 
         nm_register=name.getText().toString();
         email_register=email.getText().toString();
         pass_register= password.getText().toString();
-        confirm_pass= password.getText().toString();
+        confirm_pass= confirm.getText().toString();
 
 
         already_singup.setOnClickListener(new View.OnClickListener() {
@@ -74,14 +74,17 @@ public class SiginupFragment extends Fragment {
         sigup_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(name.getText().toString().equals("")||email.getText().toString().equals("")||password.getText().toString().equals("")){
-                    Toast.makeText(getActivity(), "Please Fill all Feilds", Toast.LENGTH_SHORT).show();
+                if(name.getText().toString().equals("")||email.getText().toString().equals("")
+                        ||password.getText().toString().equals("")){
+                    Toast.makeText(getActivity(), "Please Fill all Feilds",
+                            Toast.LENGTH_SHORT).show();
                 }
                 else {
                     Singup();
                     name.setText("");
                     email.setText("");
                     password.setText("");
+                    confirm.setText("");
                 }
             }
         });
@@ -153,7 +156,7 @@ public class SiginupFragment extends Fragment {
                 params.put("name", name.getText().toString());
                 params.put("email",email.getText().toString());
                 params.put("password",password.getText().toString());
-                params.put("password_confirmation",password.getText().toString());
+                params.put("password_confirmation",confirm.getText().toString());
 
                 return params;
             }
