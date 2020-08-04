@@ -23,7 +23,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="100dp"
         android:fontFamily="@font/muli"
-        android:text="Explore Our Resturant"
+        android:text="Explore Our Restaurant"
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textColor="@color/Black"
